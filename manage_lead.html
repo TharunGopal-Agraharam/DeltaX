@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Lead Management</title>
+</head>
+<body>
+    <h1>{{ lead and 'Edit Lead' or 'Add New Lead' }}</h1>
+    <form method="POST">
+        <input type="hidden" name="id" value="{{ lead and lead.id }}">
+        <label>Name: <input type="text" name="name" value="{{ lead and lead.name }}"></label><br>
+        <label>Contact: <input type="text" name="contact" value="{{ lead and lead.contact }}"></label><br>
+        <label>Source: <input type="text" name="source" value="{{ lead and lead.source }}"></label><br>
+        <label>Status: 
+            <select name="status">
+                <option value="New" {{ lead and lead.status == "New" and 'selected' }}>New</option>
+                <option value="Contacted" {{ lead and lead.status == "Contacted" and 'selected' }}>Contacted</option>
+                <option value="Not Interested" {{ lead and lead.status == "Not Interested" and 'selected' }}>Not Interested</option>
+            </select>
+        </label><br>
+        <label>Salesperson: <input type="text" name="salesperson" value="{{ lead and lead.salesperson }}"></label><br>
+        <button type="submit">Save</button>
+    </form>
+</body>
+</html>
