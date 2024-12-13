@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Lead Listing</title>
+</head>
+<body>
+    <h1>Lead Listing</h1>
+    <a href="/manage_lead">Add New Lead</a>
+    <table border="1">
+        <tr>
+            <th>Name</th>
+            <th>Contact</th>
+            <th>Source</th>
+            <th>Status</th>
+            <th>Salesperson</th>
+            <th>Actions</th>
+        </tr>
+        {% for lead in leads %}
+        <tr>
+            <td>{{ lead.name }}</td>
+            <td>{{ lead.contact }}</td>
+            <td>{{ lead.source }}</td>
+            <td>{{ lead.status }}</td>
+            <td>{{ lead.salesperson }}</td>
+            <td>
+                <a href="/lead/{{ lead.id }}">View</a>
+                <a href="/manage_lead?id={{ lead.id }}">Edit</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>
